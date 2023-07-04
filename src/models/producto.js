@@ -5,22 +5,22 @@ const productoScheme = new Schema({
         minLength: 2,
         maxLength: 100,
         unique : true,
-        required: true
+        required: true,
 
     },
     precio: {
         type: Number,
         min: 1,
         max: 10000,
-        required: true
+        required: true,
     },
     imagen: {
         type: String,
-        required: true
+        required: true,
     },
     categoria:{
         type: String,
-        required:true
+        required:true,
     }
 })
 const Producto = model('producto', productoScheme);
