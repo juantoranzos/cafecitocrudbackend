@@ -3,13 +3,14 @@ import cors from 'cors'
 import morgan from 'morgan'
 import * as dotenv from 'dotenv';
 import './src/database/dbConnection'
+import productosRouter from './src/routes/productos.routes'
 
 dotenv.config(); // puedo leer variables de entorno
 // crear una instancia de express
 
 const app = express();
 // configurar un puerto
-app.set('port', process.env.PORT ||  4000);
+app.set("port", process.env.PORT ||  4001);
 app.listen(app.get("port"), ()=>{
     console.log('estoy en el puerto '+ app.get('port'));
 });
@@ -20,7 +21,6 @@ app.listen(app.get("port"), ()=>{
    app.use(morgan('dev')) // nos da informacion extra en la terinal
 
 //RUTAS es de las partes mas importantes del back
-app.get('/prueba', (req, res)=>{
-  res.send('esto es una prueba de la peticion GET a mi backend')
-})
+// http://localhost:3004/apicafe/productos
 
+app.use("/apicafe", productosRouter)
