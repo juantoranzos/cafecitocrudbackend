@@ -21,6 +21,6 @@ app.listen(app.get("port"), ()=>{
    app.use(morgan('dev')) // nos da informacion extra en la terinal
 
 //RUTAS es de las partes mas importantes del back
-// http://localhost:3004/apicafe/productos
+// http://localhost:4001/apicafe/productos
 
 app.use("/apicafe", productosRouter)

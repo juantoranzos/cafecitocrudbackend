@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema, model } from "mongoose";
 const productoScheme = new Schema({
     nombreProducto: {
         type: String,
@@ -23,5 +23,5 @@ const productoScheme = new Schema({
         required:true,
     }
 })
-const Producto = model('producto', productoScheme);
-export default Producto;
+export const Producto = model('producto', productoScheme);
+export default Producto; 
