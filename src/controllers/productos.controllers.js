@@ -69,4 +69,16 @@ import Producto from '../models/producto';
             mensaje: 'el producto no se pudo editar'
         })
     }
-  }
+  };
+  export const obtenerProducto = async (req, res)=>{
+    try{
+        const producto = await Producto.findById(req.params.id);
+        res.status(200).json(producto);
+    }catch(error){
+        console.log(error)
+        res.status(404).json({
+            mensaje: 'no se puede obtener el producto buscado'
+        })
+    }
+    
+  };
