@@ -70,6 +70,8 @@ import Producto from '../models/producto';
         })
     }
   };
+
+  //obtener un producto por el id
   export const obtenerProducto = async (req, res)=>{
     try{
         const producto = await Producto.findById(req.params.id);
