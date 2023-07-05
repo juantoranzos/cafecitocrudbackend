@@ -53,3 +53,20 @@ import Producto from '../models/producto';
     }
 
   }
+
+  //editar un producto
+  export const editarProducto = async (req, res)=>{
+    try{
+        //extraer el id del request y del bdy
+      await  Producto.findByIdAndUpdate(req.params.id, req.body)
+      res.status(200).json({
+        mensaje: 'se edito con exito el producto'
+      })
+
+    }catch(error){
+        console.log(error);
+        res.status(404).json({
+            mensaje: 'el producto no se pudo editar'
+        })
+    }
+  }
