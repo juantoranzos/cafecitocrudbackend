@@ -29,7 +29,13 @@ check ('imagen')
 .notEmpty()
 .withMessage('la imagen es un dato obligatorio')
 .matches(/(http(s?):)([/l.|\w|\s|-])*\.(?:jpg|png|jpeg|svg)$/)
-.withMessage('La imagen debe tener el formato jpg , png , svg')
+.withMessage('La imagen debe tener el formato jpg , png , svg'),
+check('categoria')
+.notEmpty()
+.withMessage('la categoria es obligatoria')
+.isIn(['dulce', 'salado', 'bebida fria', 'bebida caliente'])
+.withMessage('debe ingresar una categoria valida')
+
 ],
  crearProducto)
 router.route('/productos/:id').delete(borrarProducto).put(editarProducto).get(obtenerProducto);
