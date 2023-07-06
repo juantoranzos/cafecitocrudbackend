@@ -24,7 +24,13 @@ router.route('/productos').get(obtenerProductos).post([check("nombreProducto")
     }else{
      throw new Error('El precio debe estar entre 1 y 10000')
     }
-})],
+}),
+check ('imagen')
+.notEmpty()
+.withMessage('la imagen es un dato obligatorio')
+.matches(/(http(s?):)([/l.|\w|\s|-])*\.(?:jpg|png|jpeg|svg)$/)
+.withMessage('La imagen debe tener el formato jpg , png , svg')
+],
  crearProducto)
 router.route('/productos/:id').delete(borrarProducto).put(editarProducto).get(obtenerProducto);
 export default router;
